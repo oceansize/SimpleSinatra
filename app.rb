@@ -9,6 +9,7 @@ IMAGES = [
 class App < Sinatra::Base
   get '/images' do
     @images = IMAGES
+    erb :images
   end
 
   get 'images/:index' do |index|
