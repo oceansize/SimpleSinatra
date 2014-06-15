@@ -15,8 +15,8 @@ class App < Sinatra::Base
   get '/images/?:index?' do |index|
     index = index.to_i
     @image = IMAGES[index]
-
-    haml :"images/show" # this lets a folder be referenced for the template
+    # this lets a folder be referenced for the template
+    haml :"images/show", layout: true
   end
 
   get '/' do
