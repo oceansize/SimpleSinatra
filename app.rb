@@ -12,7 +12,8 @@ class App < Sinatra::Base
     erb :images
   end
 
-  get 'images/:index' do |index|
+  get '/images/:index' do |index|
+    index = index.to_i
     @image = IMAGES[index]
   end
 
