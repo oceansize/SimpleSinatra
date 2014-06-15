@@ -1,5 +1,20 @@
 require 'sinatra/base'
+
+IMAGES = [
+  { title: "The Green"    , url: "http://images6.alphacoders.com/310/310407.jpg" },
+  { title: "Alaska"       , url: "http://www.tours4theworld.com/themes/default/uploads/alaska_discovery_land_and_cruise/pic1.jpg" },
+  { title: "The Unknown"  , url: "http://th07.deviantart.net/fs71/PRE/f/2010/285/8/d/rainmeter__into_the_unknown_by_weredawg-d30lcbn.png"},
+]
+
 class App < Sinatra::Base
+  get '/images' do
+    @images = IMAGES
+  end
+
+  get 'images/:index' do |index|
+    @image = IMAGES[index]
+  end
+
   get '/' do
     "Hello World"
   end
