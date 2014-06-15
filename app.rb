@@ -21,6 +21,14 @@ class App < Sinatra::Base
     puts "<== Leaving Request"
   end
 
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  get '/sessions/' do
+    # This will include something to persist data across the session
+  end
+
   get '/images/?' do
     @images = IMAGES
     erb :images
