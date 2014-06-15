@@ -8,7 +8,7 @@ IMAGES = [
 
 class App < Sinatra::Base
 
-  enable :sessions
+  enable :sessions, :logging # Necessary for modular apps
 
   before /images/ do
     @message = "You're viewing an image."
@@ -17,11 +17,12 @@ class App < Sinatra::Base
   before do
     @user   = 'Roi Driscoll'
     @height = session[:height]
-    puts "==> Entering Request"
+    logger.info "==> Enter request"
+    # see also: .debug .warn .fatal & .error
   end
 
   after do
-    puts "<== Leaving Request"
+    logger.info "<== Leaving Request"
   end
 
   get '/sessions/new' do
