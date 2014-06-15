@@ -7,12 +7,21 @@ IMAGES = [
 ]
 
 class App < Sinatra::Base
-  get '/images' do
+
+  before do
+    puts "==> Entering Request"
+  end
+
+  after do
+    puts "<== Leaving Request"
+  end
+
+  get '/images/?' do
     @images = IMAGES
     erb :images
   end
 
-  get '/images/?:index?' do |index|
+  get '/images/:index?' do |index|
     index = index.to_i
     @image = IMAGES[index]
     # this lets a folder be referenced for the template
