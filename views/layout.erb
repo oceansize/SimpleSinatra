@@ -2,9 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Parp</title>
+    <title>ERB Layout</title>
   </head>
   <body>
+    <p>The current ERB user is <%= @user %></p>
+    <% if @message %>
+      <p>You have a message:</p>
+      <blockquote>
+        <%= @message %>
+      </blockquote>
+    <% end %>
     <%= yield %>
   </body>
 </html>
