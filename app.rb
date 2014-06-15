@@ -8,12 +8,15 @@ IMAGES = [
 
 class App < Sinatra::Base
 
+  enable :sessions
+
   before /images/ do
     @message = "You're viewing an image."
   end
 
   before do
-    @user = 'Roi Driscoll'
+    @user   = 'Roi Driscoll'
+    @height = session[:height]
     puts "==> Entering Request"
   end
 
@@ -25,9 +28,10 @@ class App < Sinatra::Base
     erb :"sessions/new"
   end
 
-  post '/sessions/' do
+  post '/sessions' do
     # This will include something to persist data across the session
-    puts request.inspect # allows us to see what parameters are being sent to the application
+    session[:height] = params[:height]
+    #puts request.inspect # allows us to see what parameters are being sent to the application
   end
 
   get '/images/?' do

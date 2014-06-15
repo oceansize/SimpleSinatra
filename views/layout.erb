@@ -6,6 +6,11 @@
   </head>
   <body>
     <p>The current ERB user is <%= @user %></p>
+    <% if @height %>
+      <p>
+        <%= @user %> is <%= @height %> tall.
+      </p>
+    <% end %>
     <ul>
       <li>
         <a href="/sessions/new">New Session</a>
