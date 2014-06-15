@@ -25,8 +25,9 @@ class App < Sinatra::Base
     erb :"sessions/new"
   end
 
-  get '/sessions/' do
+  post '/sessions/' do
     # This will include something to persist data across the session
+    puts request.inspect # allows us to see what parameters are being sent to the application
   end
 
   get '/images/?' do
