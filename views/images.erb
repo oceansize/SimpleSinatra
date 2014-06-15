@@ -1,1 +1,8 @@
-<h1>images</h1>
+<h1>IMAGES</h1>
+
+<% @images.each do |image| %>
+  <h2><%= image[:title] %></h2>
+  <p>
+    <img src="<%= image[:url] %>" width="50%"/>
+  </p>
+<% end %>
